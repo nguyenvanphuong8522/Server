@@ -1,5 +1,4 @@
-﻿using System;
-using System.Numerics;
+﻿using MyLibrary;
 
 namespace Server
 {
@@ -12,7 +11,7 @@ namespace Server
             Player newPlayer = new Player();
             float x = random.Next(-20, 20);
             float z = random.Next(-20, 20);
-            newPlayer.position = new Vector3(x, 3, z);
+            newPlayer.position = new MyVector3(x, 3, z);
             int idRandom = random.Next(-1000, 1000);
             newPlayer.Id = idRandom;
             return newPlayer;

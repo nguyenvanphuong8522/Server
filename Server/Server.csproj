@@ -17,4 +17,10 @@
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="MyLibrary">
+      <HintPath>..\..\MyLibrary\DemoLibrary\bin\Debug\netstandard2.0\MyLibrary.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

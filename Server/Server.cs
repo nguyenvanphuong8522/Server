@@ -8,7 +8,7 @@ using System.Net.WebSockets;
 using System.Diagnostics;
 using System.Numerics;
 using Newtonsoft.Json;
-
+using MyLibrary;
 
 namespace Server
 {
@@ -40,33 +40,6 @@ namespace Server
 
         #endregion
 
-        #region Call API
-        //private static HttpClient _httpClient;
-
-        //public static void CallApi()
-        //{
-        //    _httpClient = new HttpClient();
-        //    Task callTask = CallRestApiAsync();
-        //}
-
-        //public static async Task CallRestApiAsync()
-        //{
-        //    string url = "https://localhost:7087/api/category";
-
-        //    HttpResponseMessage response = await _httpClient.GetAsync(url);
-
-        //    if (response.IsSuccessStatusCode)
-        //    {
-        //        string responseBody = await response.Content.ReadAsStringAsync();
-        //        //Debug.LogError(responseBody);
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine($"Request failed with status code: {response.StatusCode}");
-        //    }
-        //}
-        #endregion
-
 
         static async Task WaitConnect()
         {
@@ -88,7 +61,7 @@ namespace Server
             Player newPlayer = spawnManager.GetPrefab(index);
             listOfPlayer.Add(newPlayer);
 
-            string inforNewPlayer = ConvertToJson(newPlayer, RequestType.CREATE);
+            string inforNewPlayer = ConvertToJson(newPlayer, MyMessageType.CREATE);
             await SendToSingleClient(socket, inforNewPlayer);
             await SendToAllClient(inforNewPlayer);
             if (listOfPlayer.Count > 1)
@@ -116,7 +89,7 @@ namespace Server
         {
             foreach (Player item in listOfPlayer)
             {
-                await SendToSingleClient(socket, ConvertToJson(item, RequestType.CREATE));
+                await SendToSingleClient(socket, ConvertToJson(item, MyMessageType.CREATE));
             }
         }
 
@@ -128,53 +101,52 @@ namespace Server
                 int messageCode = await clientSocket.ReceiveAsync(buffer, SocketFlags.None);
                 string messageReceived = Encoding.UTF8.GetString(buffer, 0, messageCode);
                 if (messageCode == 0) return;
-                string[] requests = ConvertToArrayString(messageReceived);
+                string[] requests =  MyUtility.StringSplitArray(messageReceived);
                 var t = HandleManyRequest(requests, clientSocket);
             }
         }
 
         private static async Task HandleOneRequest(string request, Socket clientSocket)
-        {
-
+         {
             if (string.IsNullOrEmpty(request)) return;
+            MyDataRequest? data = JsonConvert.DeserializeObject<MyDataRequest>(request);
 
-            if (request[0] != '{'&& request[request.Length - 1] != '}')
-            {
-                //Console.WriteLine(request);
-                var key = dictionaryClientSocket.FirstOrDefault(kvp => kvp.Value == clientSocket).Key;
-                await SendToAllClient($"[{key}]: " + request);
-            }
+            
 
-            MyVector3? dataNewPlayer = JsonConvert.DeserializeObject<MyVector3>(request);
-            if (dataNewPlayer == null) {
-                return;
-            }
-            if (dataNewPlayer.type == RequestType.CREATE)
+            switch (data.MyRequestType)
             {
-                var key = dictionaryClientSocket.FirstOrDefault(kvp => kvp.Value == clientSocket).Key;
-                await SpawnNewPlayer(0, dictionaryClientSocket[key]);
-            }
-            else if (dataNewPlayer.type == RequestType.POSITION)
-            {
-                Player player = listOfPlayer.Find(x => x.Id == dataNewPlayer.id);
-                Player sendPlayer = player;
-                if (player != null)
-                {
-                    //Console.WriteLine(player.position);
-                    player.position = new Vector3(dataNewPlayer.x, dataNewPlayer.y, dataNewPlayer.z);
+                case MyMessageType.CREATE:
 
-                    await SendToAllClient(ConvertToJson(player, dataNewPlayer.type));
-                }
-            }
-            else if(dataNewPlayer.type == RequestType.DESTROY)
-            {
-                var key = dictionaryClientSocket.FirstOrDefault(x => x.Value == clientSocket).Key;
-                await RemovePlayer(dataNewPlayer.id);
-                dictionaryClientSocket.Remove(key);
-            }
-            else
-            {
-                Console.WriteLine(request);
+                    var key = dictionaryClientSocket.FirstOrDefault(kvp => kvp.Value == clientSocket).Key;
+                    await SpawnNewPlayer(0, dictionaryClientSocket[key]);
+                    break;
+                case MyMessageType.POSITION:
+                    PlayerPosition? playerPosition = JsonConvert.DeserializeObject<PlayerPosition>(data.Content);
+                    Player player = listOfPlayer.Find(x => x.Id == playerPosition.id);
+                    Player sendPlayer = player;
+                    if (player != null)
+                    {
+                        player.position = playerPosition.Vector3;
+                        await SendToAllClient(ConvertToJson(player, MyMessageType.POSITION));
+                    }
+                    break;
+                case MyMessageType.DESTROY:
+                    PlayerPosition? playerPosition2 = JsonConvert.DeserializeObject<PlayerPosition>(data.Content);
+                    var key2 = dictionaryClientSocket.FirstOrDefault(x => x.Value == clientSocket).Key;
+                    await RemovePlayer(playerPosition2.id);
+                    dictionaryClientSocket.Remove(key2);
+                    break;
+                case MyMessageType.TEXT:
+                    Console.WriteLine(data.Content);
+                    var key3 = dictionaryClientSocket.FirstOrDefault(kvp => kvp.Value == clientSocket).Key;
+                    string contentWillSend = $"[{key3}]: " + data.Content;
+                    MyDataRequest newDataRequest = new MyDataRequest();
+                    newDataRequest.Content = contentWillSend;
+                    newDataRequest.MyRequestType = MyMessageType.TEXT;
+                    await SendToAllClient(JsonConvert.SerializeObject(newDataRequest));
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -186,12 +158,6 @@ namespace Server
             }
         }
 
-        private static string[] ConvertToArrayString(string message)
-        {
-            string[] array = message.Split('@').Where(part => !string.IsNullOrWhiteSpace(part)).ToArray(); ;
-            return array;
-        }
-
         private static async Task RemovePlayer(int id)
         {
             Player player = listOfPlayer.Find(x => x.Id == id);
@@ -199,24 +165,15 @@ namespace Server
         }
 
 
-        private static string ConvertToJson(Player player, RequestType type)
+        private static string ConvertToJson(Player player, MyMessageType type)
         {
-            Vector3 curPos = player.position;
-            MyVector3 newVector3 = new MyVector3(curPos.X, curPos.Y, curPos.Z, type);
-            newVector3.id = player.Id;
-            newVector3.type = type;
+            PlayerPosition newplayerPosition = new PlayerPosition(player.Id, player.position);
 
-            string result = JsonConvert.SerializeObject(newVector3);
-            return result;
+            string content = JsonConvert.SerializeObject(newplayerPosition);
+            MyDataRequest newDataRequest = new MyDataRequest();
+            newDataRequest.MyRequestType = type;
+            newDataRequest.Content = content;
+            return JsonConvert.SerializeObject(newDataRequest);
         }
-
-
-        //private void o()
-        //{
-        //    foreach (var item in dictionaryClientSocket)
-        //    {
-        //        item.Value.Shutdown(SocketShutdown.Both);
-        //    }
-        //}
     }
 }

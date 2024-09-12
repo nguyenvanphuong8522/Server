@@ -19,3 +19,6 @@ C:\Users\Phuong\C#\Server\Server\bin\Debug\net8.0\MessagePack.Annotations.dll
 C:\Users\Phuong\C#\Server\Server\bin\Debug\net8.0\Microsoft.NET.StringTools.dll
 C:\Users\Phuong\C#\Server\Server\obj\Debug\net8.0\Server.csproj.Up2Date
 C:\Users\Phuong\C#\Server\Server\bin\Debug\net8.0\Newtonsoft.Json.dll
+C:\Users\Phuong\C#\Server\Server\obj\Debug\net8.0\Server.sourcelink.json
+C:\Users\Phuong\C#\Server\Server\bin\Debug\net8.0\MyLibrary.dll
+C:\Users\Phuong\C#\Server\Server\bin\Debug\net8.0\MyLibrary.pdb
