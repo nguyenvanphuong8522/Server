@@ -15,7 +15,7 @@ namespace Server
     public class Server
     {
         #region Init
-        private static Dictionary<int, Socket> dictionaryClientSocket = new Dictionary<int, Socket>();
+        private static Dictionary<int, Socket> dictionarySocket = new Dictionary<int, Socket>();
 
         private static SpawnManager? spawnManager = new SpawnManager();
         private static Socket? listenSocket;
@@ -49,7 +49,7 @@ namespace Server
                 Random random = new Random();
 
                 int randomKey = random.Next(1, 1001);
-                dictionaryClientSocket.Add(randomKey, socket);
+                dictionarySocket.Add(randomKey, socket);
                 Console.WriteLine("Has socket connected!");
                 await SendToSingleClient(socket, randomKey.ToString());
                 var taskListen = ListenClient(socket);
@@ -79,7 +79,7 @@ namespace Server
 
         private static async Task SendToAllClient(string message)
         {
-            foreach (var item in dictionaryClientSocket)
+            foreach (var item in dictionarySocket)
             {
                 await SendToSingleClient(item.Value, message);
             }
@@ -117,8 +117,8 @@ namespace Server
             {
                 case MyMessageType.CREATE:
 
-                    var key = dictionaryClientSocket.FirstOrDefault(kvp => kvp.Value == clientSocket).Key;
-                    await SpawnNewPlayer(0, dictionaryClientSocket[key]);
+                    var key = IndexOf(clientSocket);
+                    await SpawnNewPlayer(0, dictionarySocket[key]);
                     break;
                 case MyMessageType.POSITION:
                     PlayerPosition? playerPosition = JsonConvert.DeserializeObject<PlayerPosition>(data.Content);
@@ -132,18 +132,16 @@ namespace Server
                     break;
                 case MyMessageType.DESTROY:
                     PlayerPosition? playerPosition2 = JsonConvert.DeserializeObject<PlayerPosition>(data.Content);
-                    var key2 = dictionaryClientSocket.FirstOrDefault(x => x.Value == clientSocket).Key;
+                    var key2 = IndexOf(clientSocket);
                     await RemovePlayer(playerPosition2.id);
-                    dictionaryClientSocket.Remove(key2);
+                    RemoveSocket(key2);
                     break;
                 case MyMessageType.TEXT:
                     Console.WriteLine(data.Content);
-                    var key3 = dictionaryClientSocket.FirstOrDefault(kvp => kvp.Value == clientSocket).Key;
+                    var key3 = IndexOf(clientSocket);
                     string contentWillSend = $"[{key3}]: " + data.Content;
-                    MyDataRequest newDataRequest = new MyDataRequest();
-                    newDataRequest.Content = contentWillSend;
-                    newDataRequest.MyRequestType = MyMessageType.TEXT;
-                    await SendToAllClient(JsonConvert.SerializeObject(newDataRequest));
+                    
+                    await SendToAllClient(ConvertToJson(new Player(), MyMessageType.TEXT));
                     break;
                 default:
                     break;
@@ -158,6 +156,14 @@ namespace Server
             }
         }
 
+        private static int IndexOf(Socket socket)
+        {
+            return dictionarySocket.FirstOrDefault(kvp => kvp.Value == socket).Key;
+        }
+        private static async Task RemoveSocket(int key)
+        {
+            dictionarySocket.Remove(key);
+        }
         private static async Task RemovePlayer(int id)
         {
             Player player = listOfPlayer.Find(x => x.Id == id);
