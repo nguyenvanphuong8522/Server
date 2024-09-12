@@ -2,7 +2,7 @@
 
 namespace Server
 {
-    internal class SpawnManager
+    public class SpawnManager
     {
 
         public Player GetPrefab(int index)

@@ -2,7 +2,7 @@
 using MyLibrary;
 namespace Server
 {
-    internal class Player
+    public class Player
     {
         private int _id;
 
