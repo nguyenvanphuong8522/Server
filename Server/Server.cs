@@ -14,31 +14,43 @@ namespace Server
 {
     public class Server
     {
-        #region Init
-        private static Dictionary<int, Socket> dictionarySocket = new Dictionary<int, Socket>();
 
-        private static SpawnManager? spawnManager = new SpawnManager();
+        private static Dictionary<int, Socket>? dictionarySocket;
+
+        private static SpawnManager? spawnManager;
+
         private static Socket? listenSocket;
-        private static List<Player> listOfPlayer = new List<Player>();
+
+        private static List<Player>? listOfPlayer;
+
+        private static IPEndPoint? ipEndPoint;
 
         static async Task Main()
         {
-            InitSocket();
+            SetUpData();
+            StartServer();
             await WaitConnect();
         }
 
-        static void InitSocket()
+        //init data
+        private static void SetUpData()
         {
-            IPEndPoint ipEndPoint = new(IPAddress.Parse("192.168.1.25"), 8522);
+            dictionarySocket = new Dictionary<int, Socket>();
+            spawnManager = new SpawnManager();
+            listOfPlayer = new List<Player>();
+            ipEndPoint = new(IPAddress.Parse("192.168.1.25"), 8522);
+        }
 
+
+        //start listen
+        static void StartServer()
+        {
             listenSocket = new Socket(ipEndPoint.AddressFamily, SocketType.Stream, ProtocolType.Tcp);
-
             listenSocket.Bind(ipEndPoint);
             listenSocket.Listen(100);
             Console.WriteLine("LISTENING...");
         }
 
-        #endregion
 
 
         static async Task WaitConnect()
@@ -113,7 +125,7 @@ namespace Server
 
             
 
-            switch (data.MyRequestType)
+            switch (data.type)
             {
                 case MyMessageType.CREATE:
 
@@ -126,22 +138,24 @@ namespace Server
                     Player sendPlayer = player;
                     if (player != null)
                     {
-                        player.position = playerPosition.Vector3;
+                        player.position = playerPosition.position;
                         await SendToAllClient(ConvertToJson(player, MyMessageType.POSITION));
                     }
                     break;
                 case MyMessageType.DESTROY:
                     PlayerPosition? playerPosition2 = JsonConvert.DeserializeObject<PlayerPosition>(data.Content);
                     var key2 = IndexOf(clientSocket);
+                    await RemoveSocket(key2);
                     await RemovePlayer(playerPosition2.id);
-                    RemoveSocket(key2);
                     break;
                 case MyMessageType.TEXT:
                     Console.WriteLine(data.Content);
                     var key3 = IndexOf(clientSocket);
                     string contentWillSend = $"[{key3}]: " + data.Content;
-                    
-                    await SendToAllClient(ConvertToJson(new Player(), MyMessageType.TEXT));
+                    MyDataRequest newDataRequest = new MyDataRequest();
+                    newDataRequest.Content = contentWillSend;
+                    newDataRequest.type = MyMessageType.TEXT;
+                    await SendToAllClient(JsonConvert.SerializeObject(newDataRequest));
                     break;
                 default:
                     break;
@@ -177,7 +191,7 @@ namespace Server
 
             string content = JsonConvert.SerializeObject(newplayerPosition);
             MyDataRequest newDataRequest = new MyDataRequest();
-            newDataRequest.MyRequestType = type;
+            newDataRequest.type = type;
             newDataRequest.Content = content;
             return JsonConvert.SerializeObject(newDataRequest);
         }
