@@ -7,12 +7,18 @@ using System.Threading.Tasks;
 
 namespace Server
 {
-    public class PlayerManager
+    public static class PlayerManager
     {
-        public List<Player> listOfPlayer = new List<Player>();
-        public SpawnManager spawnManager = new();
+        public static List<Player> listOfPlayer;
+        public static SpawnManager spawnManager;
 
-        public async Task SpawnNewPlayer(Socket socket, int index = 0)
+        public static void Initialize()
+        {
+            listOfPlayer = new List<Player>();
+            spawnManager = new SpawnManager();
+        }
+
+        public static async Task SpawnNewPlayer(Socket socket, int index = 0)
         {
             if (socket == null) throw new ArgumentNullException(nameof(socket));
 
@@ -21,16 +27,25 @@ namespace Server
 
             listOfPlayer.Add(newPlayer);
 
-            string playerInfo = Server.ConvertToDataRequest(newPlayer.Id, newPlayer.position, MyMessageType.CREATE);
+            string playerInfo = MessageSender.ConvertToDataRequest(newPlayer.Id, newPlayer.position, MyMessageType.CREATE);
 
-            Task sendToSingleClientTask = Server.SendToSingleClient(socket, playerInfo);
-            Task sendToAllClientsTask = Server.SendToAllClients(playerInfo);
+            Task sendToSingleClientTask = MessageSender.SendToSingleClient(socket, playerInfo);
+            Task sendToAllClientsTask = MessageSender.SendToAllClients(playerInfo);
 
             await Task.WhenAll(sendToSingleClientTask, sendToAllClientsTask);
 
             if (listOfPlayer.Count > 1)
             {
-                await Server.SendInfoAboutExistingPlayers(socket);
+                await MessageSender.SendInfoAboutExistingPlayers(socket);
+            }
+        }
+
+        public static async Task RemovePlayer(int id)
+        {
+            Player player = listOfPlayer.FirstOrDefault(x => x.Id == id);
+            if (player != null)
+            {
+                listOfPlayer.Remove(player);
             }
         }
     }

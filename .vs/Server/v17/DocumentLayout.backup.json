@@ -3,16 +3,24 @@
   "WorkspaceRootPath": "C:\\Users\\Phuong\\C#\\Server\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\phuong\\c#\\server\\server\\connectmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\connectmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\phuong\\c#\\server\\server\\requesthandle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\requesthandle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\phuong\\c#\\server\\server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\phuong\\c#\\server\\server\\spawnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\spawnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\phuong\\c#\\server\\server\\messagerender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\messagerender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\phuong\\c#\\server\\server\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\phuong\\c#\\server\\server\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,39 +34,65 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "SpawnManager.cs",
-              "DocumentMoniker": "C:\\Users\\Phuong\\C#\\Server\\Server\\SpawnManager.cs",
-              "RelativeDocumentMoniker": "Server\\SpawnManager.cs",
-              "ToolTip": "C:\\Users\\Phuong\\C#\\Server\\Server\\SpawnManager.cs",
-              "RelativeToolTip": "Server\\SpawnManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAFAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "MessageRender.cs",
+              "DocumentMoniker": "C:\\Users\\Phuong\\C#\\Server\\Server\\MessageRender.cs",
+              "RelativeDocumentMoniker": "Server\\MessageRender.cs",
+              "ToolTip": "C:\\Users\\Phuong\\C#\\Server\\Server\\MessageRender.cs",
+              "RelativeToolTip": "Server\\MessageRender.cs",
+              "ViewState": "AgIAAA0AAAAAAAAAAAAgwBoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T02:45:41.559Z",
+              "WhenOpened": "2024-09-12T10:54:20.045Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\Phuong\\C#\\Server\\Server\\Player.cs",
-              "RelativeDocumentMoniker": "Server\\Player.cs",
-              "ToolTip": "C:\\Users\\Phuong\\C#\\Server\\Server\\Player.cs",
-              "RelativeToolTip": "Server\\Player.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "RequestHandle.cs",
+              "DocumentMoniker": "C:\\Users\\Phuong\\C#\\Server\\Server\\RequestHandle.cs",
+              "RelativeDocumentMoniker": "Server\\RequestHandle.cs",
+              "ToolTip": "C:\\Users\\Phuong\\C#\\Server\\Server\\RequestHandle.cs",
+              "RelativeToolTip": "Server\\RequestHandle.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA0AAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-11T07:44:39.056Z",
+              "WhenOpened": "2024-09-12T10:46:08.804Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "ConnectManager.cs",
+              "DocumentMoniker": "C:\\Users\\Phuong\\C#\\Server\\Server\\ConnectManager.cs",
+              "RelativeDocumentMoniker": "Server\\ConnectManager.cs",
+              "ToolTip": "C:\\Users\\Phuong\\C#\\Server\\Server\\ConnectManager.cs",
+              "RelativeToolTip": "Server\\ConnectManager.cs",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAYwA0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T10:44:26.828Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PlayerManager.cs",
+              "DocumentMoniker": "C:\\Users\\Phuong\\C#\\Server\\Server\\PlayerManager.cs",
+              "RelativeDocumentMoniker": "Server\\PlayerManager.cs",
+              "ToolTip": "C:\\Users\\Phuong\\C#\\Server\\Server\\PlayerManager.cs",
+              "RelativeToolTip": "Server\\PlayerManager.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAAAowCYAAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T10:20:46.517Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
               "Title": "Server.cs",
               "DocumentMoniker": "C:\\Users\\Phuong\\C#\\Server\\Server\\Server.cs",
               "RelativeDocumentMoniker": "Server\\Server.cs",
               "ToolTip": "C:\\Users\\Phuong\\C#\\Server\\Server\\Server.cs",
               "RelativeToolTip": "Server\\Server.cs",
-              "ViewState": "AgIAALIAAAAAAAAAAAAUwI8AAAA9AAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAD4vxQAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-09T04:06:20.877Z",
               "EditorCaption": ""
