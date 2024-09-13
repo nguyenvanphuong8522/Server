@@ -25,7 +25,7 @@ namespace Server
                 var socket = await Server.listenSocket.AcceptAsync();
                 dictionarySocket.Add(socketIndex++, socket);
                 Console.WriteLine($"Client[{IndexOf(socket)}] connected!");
-                var t = RequestHandler.CreateNewSession(socket);
+                await RequestHandler.CreateNewSession(socket);
             }
         }
 

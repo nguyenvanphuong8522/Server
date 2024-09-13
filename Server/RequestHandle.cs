@@ -6,7 +6,7 @@ using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
-
+using MessagePack;
 namespace Server
 {
     public static class RequestHandler
@@ -15,29 +15,32 @@ namespace Server
         {
             while (true)
             {
-                byte[] buffer = new byte[1024];
+                byte[] buffer = new byte[10];
                 int messageCode = await clientSocket.ReceiveAsync(buffer, SocketFlags.None);
-                if (messageCode == 0) return;
+                Console.WriteLine("receive");
+                int length = BitConverter.ToInt32(buffer, 0);
 
-                string messageReceived = Encoding.UTF8.GetString(buffer, 0, messageCode);
-                string[] requests = MyUtility.StringSplitArray(messageReceived);
-                await HandleManyRequests(requests, clientSocket);
+                Console.WriteLine(length); 
+
+                byte[] buffer2 = new byte[10];
+                int messageCode2 = await clientSocket.ReceiveAsync(buffer2, SocketFlags.None);
+                
+
+                int length2 = BitConverter.ToInt32(buffer2, 0);
+
+
+                Console.WriteLine(length2);
+
+                //await HandleOneRequest(byteData, clientSocket);
             }
         }
 
-        public static async Task HandleManyRequests(string[] requests, Socket clientSocket)
-        {
-            foreach (string request in requests)
-            {
-                await HandleOneRequest(request, clientSocket);
-            }
-        }
 
-        public static async Task HandleOneRequest(string request, Socket clientSocket)
+        public static async Task HandleOneRequest(byte[] request, Socket clientSocket)
         {
-            if (string.IsNullOrEmpty(request)) return;
+            if (request.Length == 0) return;
 
-            MyDataRequest? data = JsonConvert.DeserializeObject<MyDataRequest>(request);
+            MyDataRequest? data = MessagePackSerializer.Deserialize<MyDataRequest>(request);
             if (data == null) return;
             string result;
             switch (data.Type)
