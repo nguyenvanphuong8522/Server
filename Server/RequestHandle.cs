@@ -25,6 +25,14 @@ namespace Server
             }
         }
 
+        public static async Task HandleManyRequests(string[] requests, Socket clientSocket)
+        {
+            foreach (string request in requests)
+            {
+                await HandleOneRequest(request, clientSocket);
+            }
+        }
+
         public static async Task HandleOneRequest(string request, Socket clientSocket)
         {
             if (string.IsNullOrEmpty(request)) return;
@@ -49,7 +57,7 @@ namespace Server
                     break;
                 case MyMessageType.DESTROY:
                     MessageBase? messageBase = JsonConvert.DeserializeObject<MessageBase>(data.Content);
-                    await ConnectionManager.DisconnectClient(clientSocket, messageBase.id);
+                    var t2 = ConnectionManager.DisconnectClient(clientSocket, messageBase.id);
                     break;
                 case MyMessageType.TEXT:
                     MessageText messageText = JsonConvert.DeserializeObject<MessageText>(data.Content);
@@ -64,12 +72,6 @@ namespace Server
             }
         }
 
-        public static async Task HandleManyRequests(string[] requests, Socket clientSocket)
-        {
-            foreach (string request in requests)
-            {
-                await HandleOneRequest(request, clientSocket);
-            }
-        }
+
     }
 }

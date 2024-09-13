@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MyLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -23,7 +24,7 @@ namespace Server
             {
                 var socket = await Server.listenSocket.AcceptAsync();
                 dictionarySocket.Add(socketIndex++, socket);
-                Console.WriteLine($"Client[{socketIndex}] connected!");
+                Console.WriteLine($"Client[{IndexOf(socket)}] connected!");
                 var t = RequestHandler.CreateNewSession(socket);
             }
         }
@@ -40,11 +41,14 @@ namespace Server
 
         public static async Task DisconnectClient(Socket socket, int playerId)
         {
-            int socketIndex = IndexOf(socket);
-            dictionarySocket[socketIndex].Shutdown(SocketShutdown.Both);
-            dictionarySocket[socketIndex].Close();
+            int key = IndexOf(socket);
+            dictionarySocket[key].Close();
             dictionarySocket.Remove(socketIndex);
-            await PlayerManager.RemovePlayer(playerId);
+            string content = MyUtility.ConvertToMessageDestroy(playerId);
+            string result = MyUtility.ConvertToDataRequestJson(content, MyMessageType.DESTROY);
+            Console.WriteLine($"Client[{key}] disconnnected!");
+            var t2 = PlayerManager.RemovePlayer(playerId);
+            var t = MessageSender.SendToAllClients(result);
         }
     }
 }

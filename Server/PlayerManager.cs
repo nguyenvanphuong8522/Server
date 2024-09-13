@@ -18,26 +18,18 @@ namespace Server
             spawnManager = new SpawnManager();
         }
 
-        public static async Task SpawnNewPlayer(Socket socket, int index = 0)
+        public static async Task SpawnNewPlayer(Socket socket)
         {
-            if (socket == null) throw new ArgumentNullException(nameof(socket));
-
-            Player newPlayer = spawnManager.GetPrefab(index);
-            if (newPlayer == null) throw new Exception("Failed to spawn new player.");
+            Player newPlayer = spawnManager.GetPrefab();
+            if (newPlayer == null) return;
 
             listOfPlayer.Add(newPlayer);
 
             string playerInfo = MessageSender.ConvertToDataRequest(newPlayer.Id, newPlayer.position, MyMessageType.CREATE);
 
-            Task sendToSingleClientTask = MessageSender.SendToSingleClient(socket, playerInfo);
-            Task sendToAllClientsTask = MessageSender.SendToAllClients(playerInfo);
-
-            await Task.WhenAll(sendToSingleClientTask, sendToAllClientsTask);
-
-            if (listOfPlayer.Count > 1)
-            {
-                await MessageSender.SendInfoAboutExistingPlayers(socket);
-            }
+            await MessageSender.SendToSingleClient(socket, playerInfo);
+            await MessageSender.SendInfoAboutExistingPlayers(socket);
+            await MessageSender.SendToAllClients(playerInfo);
         }
 
         public static async Task RemovePlayer(int id)

@@ -12,6 +12,7 @@ namespace Server
     {
         public static async Task SendToSingleClient(Socket socket, string message)
         {
+            if (socket == null) return;
             string messageToSend = message + '@';
             var sendBuffer = Encoding.UTF8.GetBytes(messageToSend);
             await socket.SendAsync(sendBuffer, SocketFlags.None);
@@ -21,7 +22,11 @@ namespace Server
         {
             foreach (var socket in ConnectionManager.dictionarySocket.Values)
             {
-                await SendToSingleClient(socket, message);
+                if (socket.Connected)
+                {
+                    await SendToSingleClient(socket, message);
+                }
+
             }
         }
 
