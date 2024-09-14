@@ -47,7 +47,7 @@ namespace Server
             dictionarySocket.Remove(socketIndex);
 
             byte[] content = MessagePackSerializer.Serialize(new MessageBase(playerId));
-            byte[] result = RequestHandler.SendMessageConverted(MyMessageType.DESTROY, content);
+            byte[] result = MyUtility.SendMessageConverted(MyMessageType.DESTROY, content);
             Console.WriteLine($"Client[{key}] disconnnected!");
             var t2 = PlayerManager.RemovePlayer(playerId);
             var t = MessageSender.SendToAllClients(result);

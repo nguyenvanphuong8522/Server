@@ -47,12 +47,6 @@ namespace Server
             }
         }
 
-        public static string ConvertToDataRequest(int id, MyVector3 pos, MyMessageType type)
-        {
-            string content = MyUtility.ConvertToMessagePosition(id, pos);
-            return MyUtility.ConvertToDataRequestJson(content, type);
-        }
-
         public static async Task SendInfoAboutExistingPlayers(Socket socket)
         {
             string content = string.Empty;
@@ -60,7 +54,7 @@ namespace Server
             foreach (Player player in PlayerManager.listOfPlayer)
             {
                 MessagePosition newMessagePosition = new MessagePosition(player.Id, player.position);
-                byte[] dataSend = RequestHandler.SendMessageConverted(MyMessageType.CREATE, MessagePackSerializer.Serialize(newMessagePosition));
+                byte[] dataSend = MyUtility.SendMessageConverted(MyMessageType.CREATE, MessagePackSerializer.Serialize(newMessagePosition));
                 
                 await SendToSingleClient(socket, dataSend);
             }

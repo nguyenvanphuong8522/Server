@@ -11,25 +11,6 @@ namespace Server
 {
     public static class RequestHandler
     {
-
-        public static byte[] SendMessageConverted(MyMessageType type, byte[] bytesData)
-        {
-            byte[] bytesType = MessagePackSerializer.Serialize(type);
-            int lengthData = bytesData.Length;
-            byte[] bytesLengthSolid = new byte[13];
-            byte[] byteLength = BitConverter.GetBytes(lengthData);
-            Buffer.BlockCopy(byteLength, 0, bytesLengthSolid, 0, byteLength.Length);
-
-            byte[] mainData = new byte[lengthData + 1];
-
-            Buffer.BlockCopy(bytesData, 0, mainData, 1, lengthData);
-            Buffer.BlockCopy(bytesType, 0, mainData, 0, 1);
-            byte[] result = new byte[mainData.Length + 13];
-            Buffer.BlockCopy(bytesLengthSolid, 0, result, 0, bytesLengthSolid.Length);
-            Buffer.BlockCopy(mainData, 0, result, 13, mainData.Length);
-            return result;
-        }
-
         public static MyMessageType ByteToType(byte value)
         {
             byte[] bytes = { value };
@@ -81,7 +62,7 @@ namespace Server
                     player.UpdatePosition(playerPosition.Position);
                     MessagePosition messagePosition = new MessagePosition(playerPosition.id, playerPosition.Position);
                     byte[] data = MessagePackSerializer.Serialize(messagePosition);
-                    byte[] resultFinal = SendMessageConverted(MyMessageType.POSITION, data);
+                    byte[] resultFinal = MyUtility.SendMessageConverted(MyMessageType.POSITION, data);
                     await MessageSender.SendToAllClients(resultFinal);
 
                     break;
@@ -95,7 +76,7 @@ namespace Server
 
                     byte[] data2 = MessagePackSerializer.Serialize(messageText);
 
-                    byte[] result2 = SendMessageConverted(MyMessageType.TEXT, data2);
+                    byte[] result2 =MyUtility.SendMessageConverted(MyMessageType.TEXT, data2);
                     await MessageSender.SendToAllClients(result2);
                     break;
                 default:

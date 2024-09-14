@@ -27,7 +27,7 @@ namespace Server
 
             listOfPlayer.Add(newPlayer);
             MessagePosition newMessagePosition = new MessagePosition(newPlayer.Id, newPlayer.position);
-            byte[] dataSend = RequestHandler.SendMessageConverted(MyMessageType.CREATE, MessagePackSerializer.Serialize(newMessagePosition));
+            byte[] dataSend = MyUtility.SendMessageConverted(MyMessageType.CREATE, MessagePackSerializer.Serialize(newMessagePosition));
 
             await MessageSender.SendToSingleClient(socket, dataSend);
             await MessageSender.SendInfoAboutExistingPlayers(socket);
