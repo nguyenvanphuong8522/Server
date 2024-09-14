@@ -24,17 +24,6 @@ namespace Server
             await socket.SendAsync(data, SocketFlags.None);
         }
 
-        public static async Task SendToAllClients(string message)
-        {
-            foreach (var socket in ConnectionManager.dictionarySocket.Values)
-            {
-                if (socket.Connected)
-                {
-                    await SendToSingleClient(socket, message);
-                }
-
-            }
-        }
         public static async Task SendToAllClients(byte[] data)
         {
             foreach (var socket in ConnectionManager.dictionarySocket.Values)
@@ -54,7 +43,7 @@ namespace Server
             foreach (Player player in PlayerManager.listOfPlayer)
             {
                 MessagePosition newMessagePosition = new MessagePosition(player.Id, player.position);
-                byte[] dataSend = MyUtility.SendMessageConverted(MyMessageType.CREATE, MessagePackSerializer.Serialize(newMessagePosition));
+                byte[] dataSend = MyUtility.ConvertFinalMessageToBytes(MyMessageType.CREATE, MessagePackSerializer.Serialize(newMessagePosition));
                 
                 await SendToSingleClient(socket, dataSend);
             }

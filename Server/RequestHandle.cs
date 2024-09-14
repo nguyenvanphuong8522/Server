@@ -62,7 +62,7 @@ namespace Server
                     player.UpdatePosition(playerPosition.Position);
                     MessagePosition messagePosition = new MessagePosition(playerPosition.id, playerPosition.Position);
                     byte[] data = MessagePackSerializer.Serialize(messagePosition);
-                    byte[] resultFinal = MyUtility.SendMessageConverted(MyMessageType.POSITION, data);
+                    byte[] resultFinal = MyUtility.ConvertFinalMessageToBytes(MyMessageType.POSITION, data);
                     await MessageSender.SendToAllClients(resultFinal);
 
                     break;
@@ -76,7 +76,7 @@ namespace Server
 
                     byte[] data2 = MessagePackSerializer.Serialize(messageText);
 
-                    byte[] result2 =MyUtility.SendMessageConverted(MyMessageType.TEXT, data2);
+                    byte[] result2 =MyUtility.ConvertFinalMessageToBytes(MyMessageType.TEXT, data2);
                     await MessageSender.SendToAllClients(result2);
                     break;
                 default:
