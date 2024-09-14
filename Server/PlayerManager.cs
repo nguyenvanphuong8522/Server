@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MessagePack;
+using MyLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
@@ -24,12 +26,12 @@ namespace Server
             if (newPlayer == null) return;
 
             listOfPlayer.Add(newPlayer);
+            MessagePosition newMessagePosition = new MessagePosition(newPlayer.Id, newPlayer.position);
+            byte[] dataSend = RequestHandler.SendMessageConverted(MyMessageType.CREATE, MessagePackSerializer.Serialize(newMessagePosition));
 
-            string playerInfo = MessageSender.ConvertToDataRequest(newPlayer.Id, newPlayer.position, MyMessageType.CREATE);
-
-            await MessageSender.SendToSingleClient(socket, playerInfo);
+            await MessageSender.SendToSingleClient(socket, dataSend);
             await MessageSender.SendInfoAboutExistingPlayers(socket);
-            await MessageSender.SendToAllClients(playerInfo);
+            await MessageSender.SendToAllClients(dataSend);
         }
 
         public static async Task RemovePlayer(int id)

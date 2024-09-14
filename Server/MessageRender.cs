@@ -1,4 +1,5 @@
-﻿using MyLibrary;
+﻿using MessagePack;
+using MyLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,11 @@ namespace Server
             var sendBuffer = Encoding.UTF8.GetBytes(messageToSend);
             await socket.SendAsync(sendBuffer, SocketFlags.None);
         }
+        public static async Task SendToSingleClient(Socket socket, byte[] data)
+        {
+            if (socket == null) return;
+            await socket.SendAsync(data, SocketFlags.None);
+        }
 
         public static async Task SendToAllClients(string message)
         {
@@ -25,6 +31,17 @@ namespace Server
                 if (socket.Connected)
                 {
                     await SendToSingleClient(socket, message);
+                }
+
+            }
+        }
+        public static async Task SendToAllClients(byte[] data)
+        {
+            foreach (var socket in ConnectionManager.dictionarySocket.Values)
+            {
+                if (socket.Connected)
+                {
+                    await SendToSingleClient(socket, data);
                 }
 
             }
@@ -42,9 +59,10 @@ namespace Server
             string inforNewPlayer = string.Empty;
             foreach (Player player in PlayerManager.listOfPlayer)
             {
-                content = MyUtility.ConvertToMessagePosition(player.Id, player.position);
-                inforNewPlayer = MyUtility.ConvertToDataRequestJson(content, MyMessageType.CREATE);
-                await SendToSingleClient(socket, inforNewPlayer);
+                MessagePosition newMessagePosition = new MessagePosition(player.Id, player.position);
+                byte[] dataSend = RequestHandler.SendMessageConverted(MyMessageType.CREATE, MessagePackSerializer.Serialize(newMessagePosition));
+                
+                await SendToSingleClient(socket, dataSend);
             }
         }
     }

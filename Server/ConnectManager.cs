@@ -1,4 +1,5 @@
-﻿using MyLibrary;
+﻿using MessagePack;
+using MyLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace Server
                 var socket = await Server.listenSocket.AcceptAsync();
                 dictionarySocket.Add(socketIndex++, socket);
                 Console.WriteLine($"Client[{IndexOf(socket)}] connected!");
-                await RequestHandler.CreateNewSession(socket);
+                var t = RequestHandler.CreateNewSession(socket);
             }
         }
 
@@ -44,8 +45,9 @@ namespace Server
             int key = IndexOf(socket);
             dictionarySocket[key].Close();
             dictionarySocket.Remove(socketIndex);
-            string content = MyUtility.ConvertToMessageDestroy(playerId);
-            string result = MyUtility.ConvertToDataRequestJson(content, MyMessageType.DESTROY);
+
+            byte[] content = MessagePackSerializer.Serialize(new MessageBase(playerId));
+            byte[] result = RequestHandler.SendMessageConverted(MyMessageType.DESTROY, content);
             Console.WriteLine($"Client[{key}] disconnnected!");
             var t2 = PlayerManager.RemovePlayer(playerId);
             var t = MessageSender.SendToAllClients(result);
