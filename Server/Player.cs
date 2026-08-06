@@ -1,5 +1,5 @@
-﻿using System.Numerics;
-using MyLibrary;
+﻿
+using Shared.Math;
 namespace Server
 {
     public class Player
@@ -20,7 +20,7 @@ namespace Server
 
         }
 
-        public MyVector3? position;
+        public MyVector3 position;
 
         public void UpdatePosition(MyVector3 newPos)
         {

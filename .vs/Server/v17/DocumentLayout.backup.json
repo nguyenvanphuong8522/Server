@@ -1,34 +1,58 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\Phuong\\C#\\Server\\",
+  "WorkspaceRootPath": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\phuong\\c#\\server\\server\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\phuong\\c#\\server\\server\\connectmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\connectmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\phuong\\c#\\server\\server\\requesthandle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\requesthandle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\phuong\\c#\\server\\server\\messagerender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\messagerender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\phuong\\c#\\server\\server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\admin\\mydata\\unity documents\\projects\\server\\server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\server.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\phuong\\c#\\server\\server\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\admin\\mydata\\unity documents\\projects\\server\\server\\spawnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\spawnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\admin\\mydata\\unity documents\\projects\\server\\server\\requesthandle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\requesthandle.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1129D33A-BFC7-4A5D-91F5-08B461C0DF81}|MyLibrary\\MyLibrary.csproj|c:\\users\\admin\\mydata\\unity documents\\projects\\server\\mylibrary\\message\\messageposition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1129D33A-BFC7-4A5D-91F5-08B461C0DF81}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\message\\messageposition.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1129D33A-BFC7-4A5D-91F5-08B461C0DF81}|MyLibrary\\MyLibrary.csproj|c:\\users\\admin\\mydata\\unity documents\\projects\\server\\mylibrary\\message\\messagetext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1129D33A-BFC7-4A5D-91F5-08B461C0DF81}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\message\\messagetext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1129D33A-BFC7-4A5D-91F5-08B461C0DF81}|MyLibrary\\MyLibrary.csproj|c:\\users\\admin\\mydata\\unity documents\\projects\\server\\mylibrary\\network\\packetutility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1129D33A-BFC7-4A5D-91F5-08B461C0DF81}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\network\\packetutility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1129D33A-BFC7-4A5D-91F5-08B461C0DF81}|MyLibrary\\MyLibrary.csproj|c:\\users\\admin\\mydata\\unity documents\\projects\\server\\mylibrary\\network\\mymessagetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1129D33A-BFC7-4A5D-91F5-08B461C0DF81}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\network\\mymessagetype.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1129D33A-BFC7-4A5D-91F5-08B461C0DF81}|MyLibrary\\MyLibrary.csproj|c:\\users\\admin\\mydata\\unity documents\\projects\\server\\mylibrary\\math\\myvector3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1129D33A-BFC7-4A5D-91F5-08B461C0DF81}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\math\\myvector3.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1129D33A-BFC7-4A5D-91F5-08B461C0DF81}|MyLibrary\\MyLibrary.csproj|c:\\users\\admin\\mydata\\unity documents\\projects\\server\\mylibrary\\message\\messagebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1129D33A-BFC7-4A5D-91F5-08B461C0DF81}|MyLibrary\\MyLibrary.csproj|solutionrelative:mylibrary\\message\\messagebase.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\admin\\mydata\\unity documents\\projects\\server\\server\\connectmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\connectmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\admin\\mydata\\unity documents\\projects\\server\\server\\messagerender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\messagerender.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\admin\\mydata\\unity documents\\projects\\server\\server\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\phuong\\c#\\server\\server\\spawnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\spawnmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|c:\\users\\admin\\mydata\\unity documents\\projects\\server\\server\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2488F8E0-F5A5-489A-AD0D-674A8EE08DE0}|Server\\Server.csproj|solutionrelative:server\\playermanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,69 +62,108 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
+              "Title": "PacketUtility.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\MyLibrary\\Network\\PacketUtility.cs",
+              "RelativeDocumentMoniker": "MyLibrary\\Network\\PacketUtility.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\MyLibrary\\Network\\PacketUtility.cs",
+              "RelativeToolTip": "MyLibrary\\Network\\PacketUtility.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwA4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T15:25:58.147Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MessageText.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\MyLibrary\\Message\\MessageText.cs",
+              "RelativeDocumentMoniker": "MyLibrary\\Message\\MessageText.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\MyLibrary\\Message\\MessageText.cs",
+              "RelativeToolTip": "MyLibrary\\Message\\MessageText.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T15:25:36.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "MyMessageType.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\MyLibrary\\Network\\MyMessageType.cs",
+              "RelativeDocumentMoniker": "MyLibrary\\Network\\MyMessageType.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\MyLibrary\\Network\\MyMessageType.cs",
+              "RelativeToolTip": "MyLibrary\\Network\\MyMessageType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAgAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T15:25:10.563Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "MyVector3.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\MyLibrary\\Math\\MyVector3.cs",
+              "RelativeDocumentMoniker": "MyLibrary\\Math\\MyVector3.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\MyLibrary\\Math\\MyVector3.cs",
+              "RelativeToolTip": "MyLibrary\\Math\\MyVector3.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAXAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T15:24:26.22Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MessagePosition.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\MyLibrary\\Message\\MessagePosition.cs",
+              "RelativeDocumentMoniker": "MyLibrary\\Message\\MessagePosition.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\MyLibrary\\Message\\MessagePosition.cs",
+              "RelativeToolTip": "MyLibrary\\Message\\MessagePosition.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwAYAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T15:22:56.245Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Messagebase.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\MyLibrary\\Message\\Messagebase.cs",
+              "RelativeDocumentMoniker": "MyLibrary\\Message\\Messagebase.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\MyLibrary\\Message\\Messagebase.cs",
+              "RelativeToolTip": "MyLibrary\\Message\\Messagebase.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-06T15:19:57.771Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
               "Title": "ConnectManager.cs",
-              "DocumentMoniker": "C:\\Users\\Phuong\\C#\\Server\\Server\\ConnectManager.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\Server\\ConnectManager.cs",
               "RelativeDocumentMoniker": "Server\\ConnectManager.cs",
-              "ToolTip": "C:\\Users\\Phuong\\C#\\Server\\Server\\ConnectManager.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\Server\\ConnectManager.cs",
               "RelativeToolTip": "Server\\ConnectManager.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAYwDMAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAABsAAAAAAAAAAAAowC0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-12T10:44:26.828Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\Phuong\\C#\\Server\\Server\\Player.cs",
-              "RelativeDocumentMoniker": "Server\\Player.cs",
-              "ToolTip": "C:\\Users\\Phuong\\C#\\Server\\Server\\Player.cs",
-              "RelativeToolTip": "Server\\Player.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T10:04:07.205Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "SpawnManager.cs",
-              "DocumentMoniker": "C:\\Users\\Phuong\\C#\\Server\\Server\\SpawnManager.cs",
-              "RelativeDocumentMoniker": "Server\\SpawnManager.cs",
-              "ToolTip": "C:\\Users\\Phuong\\C#\\Server\\Server\\SpawnManager.cs",
-              "RelativeToolTip": "Server\\SpawnManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-14T09:41:39.341Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "MessageRender.cs",
-              "DocumentMoniker": "C:\\Users\\Phuong\\C#\\Server\\Server\\MessageRender.cs",
-              "RelativeDocumentMoniker": "Server\\MessageRender.cs",
-              "ToolTip": "C:\\Users\\Phuong\\C#\\Server\\Server\\MessageRender.cs",
-              "RelativeToolTip": "Server\\MessageRender.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAwCkAAAAxAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T10:54:20.045Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 2,
               "Title": "RequestHandle.cs",
-              "DocumentMoniker": "C:\\Users\\Phuong\\C#\\Server\\Server\\RequestHandle.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\Server\\RequestHandle.cs",
               "RelativeDocumentMoniker": "Server\\RequestHandle.cs",
-              "ToolTip": "C:\\Users\\Phuong\\C#\\Server\\Server\\RequestHandle.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\Server\\RequestHandle.cs",
               "RelativeToolTip": "Server\\RequestHandle.cs",
-              "ViewState": "AgIAADgAAAAAAAAAAAAIwEYAAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAB0AAAAAAAAAAAAwwD4AAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-09-12T10:46:08.804Z",
               "EditorCaption": ""
@@ -108,27 +171,66 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "PlayerManager.cs",
-              "DocumentMoniker": "C:\\Users\\Phuong\\C#\\Server\\Server\\PlayerManager.cs",
-              "RelativeDocumentMoniker": "Server\\PlayerManager.cs",
-              "ToolTip": "C:\\Users\\Phuong\\C#\\Server\\Server\\PlayerManager.cs",
-              "RelativeToolTip": "Server\\PlayerManager.cs",
-              "ViewState": "AgIAABEAAAAAAAAAAAAkwCQAAAA1AAAAAAAAAA==",
+              "Title": "Server.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\Server\\Server.cs",
+              "RelativeDocumentMoniker": "Server\\Server.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\Server\\Server.cs",
+              "RelativeToolTip": "Server\\Server.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA5AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-12T10:20:46.517Z",
+              "WhenOpened": "2024-09-09T04:06:20.877Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Server.cs",
-              "DocumentMoniker": "C:\\Users\\Phuong\\C#\\Server\\Server\\Server.cs",
-              "RelativeDocumentMoniker": "Server\\Server.cs",
-              "ToolTip": "C:\\Users\\Phuong\\C#\\Server\\Server\\Server.cs",
-              "RelativeToolTip": "Server\\Server.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAQwBQAAAAvAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "SpawnManager.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\Server\\SpawnManager.cs",
+              "RelativeDocumentMoniker": "Server\\SpawnManager.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\Server\\SpawnManager.cs",
+              "RelativeToolTip": "Server\\SpawnManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-09-09T04:06:20.877Z",
+              "WhenOpened": "2024-09-14T09:41:39.341Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "MessageRender.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\Server\\MessageRender.cs",
+              "RelativeDocumentMoniker": "Server\\MessageRender.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\Server\\MessageRender.cs",
+              "RelativeToolTip": "Server\\MessageRender.cs",
+              "ViewState": "AgIAABYAAAAAAAAAAAA5wC4AAABIAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T10:54:20.045Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\Server\\Player.cs",
+              "RelativeDocumentMoniker": "Server\\Player.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\Server\\Player.cs",
+              "RelativeToolTip": "Server\\Player.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAmwBYAAAAYAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-14T10:04:07.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "PlayerManager.cs",
+              "DocumentMoniker": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\Server\\PlayerManager.cs",
+              "RelativeDocumentMoniker": "Server\\PlayerManager.cs",
+              "ToolTip": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\Server\\PlayerManager.cs",
+              "RelativeToolTip": "Server\\PlayerManager.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB8AAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-09-12T10:20:46.517Z",
               "EditorCaption": ""
             }
           ]

@@ -1,11 +1,13 @@
 ﻿using MessagePack;
-using MyLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using Shared.Network;
+using Shared.Messages;
+using Shared.Math;
 
 namespace Server
 {
@@ -47,7 +49,7 @@ namespace Server
             dictionarySocket.Remove(socketIndex);
 
             byte[] content = MessagePackSerializer.Serialize(new MessageBase(playerId));
-            byte[] result = MyUtility.ConvertFinalMessageToBytes(MyMessageType.DESTROY, content);
+            byte[] result = PacketUtility.BuildPacket(MyMessageType.DESTROY, content);
             Console.WriteLine($"Client[{key}] disconnnected!");
             await PlayerManager.RemovePlayer(playerId);
             await MessageSender.SendToAllClients(result);

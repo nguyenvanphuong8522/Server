@@ -1,11 +1,13 @@
 ﻿using MessagePack;
-using MyLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using Shared.Messages;
+using Shared.Math;
+using Shared.Network;
 
 namespace Server
 {
@@ -43,7 +45,7 @@ namespace Server
             foreach (Player player in PlayerManager.listOfPlayer)
             {
                 MessagePosition newMessagePosition = new MessagePosition(player.Id, player.position);
-                byte[] dataSend = MyUtility.ConvertFinalMessageToBytes(MyMessageType.CREATE, MessagePackSerializer.Serialize(newMessagePosition));
+                byte[] dataSend = PacketUtility.BuildPacket(MyMessageType.CREATE, MessagePackSerializer.Serialize(newMessagePosition));
                 
                 await SendToSingleClient(socket, dataSend);
             }

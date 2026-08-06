@@ -1,12 +1,7 @@
-﻿using MyLibrary;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Net.Sockets;
 using MessagePack;
+using Shared.Network;
+using Shared.Messages;
 namespace Server
 {
     public static class RequestHandler
@@ -57,26 +52,26 @@ namespace Server
                     break;
                 case MyMessageType.POSITION:
                     MessagePosition? playerPosition = MessagePackSerializer.Deserialize<MessagePosition>(request);
-                    Player player = PlayerManager.listOfPlayer.Find(x => x.Id == playerPosition.id);
+                    Player player = PlayerManager.listOfPlayer.Find(x => x.Id == playerPosition.Id);
                     if (player == null) return;
                     player.UpdatePosition(playerPosition.Position);
-                    MessagePosition messagePosition = new MessagePosition(playerPosition.id, playerPosition.Position);
+                    MessagePosition messagePosition = new MessagePosition(playerPosition.Id, playerPosition.Position);
                     byte[] data = MessagePackSerializer.Serialize(messagePosition);
-                    byte[] resultFinal = MyUtility.ConvertFinalMessageToBytes(MyMessageType.POSITION, data);
+                    byte[] resultFinal = PacketUtility.BuildPacket(MyMessageType.POSITION, data);
                     await MessageSender.SendToAllClients(resultFinal);
 
                     break;
                 case MyMessageType.DESTROY:
                     MessageBase? messageBase = MessagePackSerializer.Deserialize<MessageBase>(request);
-                    var t2 = ConnectionManager.DisconnectClient(clientSocket, messageBase.id);
+                    var t2 = ConnectionManager.DisconnectClient(clientSocket, messageBase.Id);
                     break;
                 case MyMessageType.TEXT:
                     MessageText messageText = MessagePackSerializer.Deserialize<MessageText>(request);
-                    messageText.text = $"[{ConnectionManager.IndexOf(clientSocket)}]: " + messageText.text;
+                    messageText.Text = $"[{ConnectionManager.IndexOf(clientSocket)}]: " + messageText.Text;
 
                     byte[] data2 = MessagePackSerializer.Serialize(messageText);
 
-                    byte[] result2 =MyUtility.ConvertFinalMessageToBytes(MyMessageType.TEXT, data2);
+                    byte[] result2 =PacketUtility.BuildPacket(MyMessageType.TEXT, data2);
                     await MessageSender.SendToAllClients(result2);
                     break;
                 default:

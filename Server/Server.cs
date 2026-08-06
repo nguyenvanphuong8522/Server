@@ -2,7 +2,6 @@
 using System.Net;
 using System.Text;
 using Newtonsoft.Json;
-using MyLibrary;
 using System.Numerics;
 
 namespace Server
@@ -11,7 +10,7 @@ namespace Server
     {
         public static Socket? listenSocket;
         private const int port = 8522;
-        private const string ipAddress = "192.168.1.25";
+        private const string ipAddress = "192.168.197.1";
         private static IPEndPoint? ipEndPoint;
 
         static async Task Main()

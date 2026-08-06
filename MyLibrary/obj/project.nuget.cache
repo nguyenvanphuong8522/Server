@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "CffZIVUq2NA=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ADMIN\\MyData\\Unity Documents\\Projects\\Server\\MyLibrary\\MyLibrary.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ADMIN\\.nuget\\packages\\messagepack\\3.1.8\\messagepack.3.1.8.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\messagepack.annotations\\3.1.8\\messagepack.annotations.3.1.8.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\messagepackanalyzer\\3.1.8\\messagepackanalyzer.3.1.8.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.net.stringtools\\17.11.4\\microsoft.net.stringtools.17.11.4.nupkg.sha512"
+  ],
+  "logs": []
+}

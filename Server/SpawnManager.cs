@@ -1,4 +1,5 @@
-﻿using MyLibrary;
+﻿
+using Shared.Math;
 
 namespace Server
 {
