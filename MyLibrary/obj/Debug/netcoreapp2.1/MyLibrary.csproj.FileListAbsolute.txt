@@ -1,0 +1,5 @@
+C:\Users\ADMIN\MyData\Unity Documents\Projects\Server\MyLibrary\obj\Debug\netcoreapp2.1\MyLibrary.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ADMIN\MyData\Unity Documents\Projects\Server\MyLibrary\obj\Debug\netcoreapp2.1\MyLibrary.AssemblyInfoInputs.cache
+C:\Users\ADMIN\MyData\Unity Documents\Projects\Server\MyLibrary\obj\Debug\netcoreapp2.1\MyLibrary.AssemblyInfo.cs
+C:\Users\ADMIN\MyData\Unity Documents\Projects\Server\MyLibrary\obj\Debug\netcoreapp2.1\MyLibrary.csproj.CoreCompileInputs.cache
+C:\Users\ADMIN\MyData\Unity Documents\Projects\Server\MyLibrary\obj\Debug\netcoreapp2.1\MyLibrary.sourcelink.json

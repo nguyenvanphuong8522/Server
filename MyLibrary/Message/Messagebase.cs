@@ -1,19 +1,21 @@
 ﻿using MessagePack;
 
-namespace Shared.Messages;
-
-[MessagePackObject]
-public class MessageBase
+namespace Shared.Messages
 {
-    [Key(0)]
-    public int Id;
-
-    public MessageBase()
+    [MessagePackObject]
+    public class MessageBase
     {
-    }
+        [Key(0)]
+        public int Id;
 
-    public MessageBase(int id)
-    {
-        Id = id;
+        public MessageBase()
+        {
+        }
+
+        public MessageBase(int id)
+        {
+            Id = id;
+        }
     }
 }
+
